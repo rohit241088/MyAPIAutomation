@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="1" ignored="0" total="4" passed="3">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="18595" started-at="2020-08-19T11:16:54 IST" finished-at="2020-08-19T11:17:13 IST">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="18595" started-at="2020-08-19T11:16:54 IST" finished-at="2020-08-19T11:17:13 IST">
+      <class name="testEngine.triggerTest">
+        <test-method status="PASS" signature="setup()[pri:0, instance:testEngine.triggerTest@23faf8f2]" name="setup" is-config="true" duration-ms="4026" started-at="2020-08-19T11:16:54 IST" finished-at="2020-08-19T11:16:58 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="triggerRequest(java.lang.String)[pri:0, instance:testEngine.triggerTest@23faf8f2]" name="triggerRequest" duration-ms="9351" started-at="2020-08-19T11:16:59 IST" data-provider="resourcesData" finished-at="2020-08-19T11:17:08 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[SingleUser]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- triggerRequest -->
+        <test-method status="FAIL" signature="triggerRequest(java.lang.String)[pri:0, instance:testEngine.triggerTest@23faf8f2]" name="triggerRequest" duration-ms="45" started-at="2020-08-19T11:17:08 IST" data-provider="resourcesData" finished-at="2020-08-19T11:17:08 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[AllResources]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.IllegalArgumentException">
+            <message>
+              <![CDATA[Specification to merge with cannot be null]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.IllegalArgumentException: Specification to merge with cannot be null
+at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+at java.lang.reflect.Constructor.newInstance(Unknown Source)
+at org.codehaus.groovy.reflection.CachedConstructor.invoke(CachedConstructor.java:72)
+at org.codehaus.groovy.reflection.CachedConstructor.doConstructorInvoke(CachedConstructor.java:59)
+at org.codehaus.groovy.runtime.callsite.ConstructorSite$ConstructorSiteNoUnwrap.callConstructor(ConstructorSite.java:84)
+at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallConstructor(CallSiteArray.java:59)
+at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:263)
+at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:277)
+at io.restassured.internal.common.assertion.AssertParameter.notNull(AssertParameter.groovy:26)
+at io.restassured.internal.common.assertion.AssertParameter$notNull.callStatic(Unknown Source)
+at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallStatic(CallSiteArray.java:55)
+at io.restassured.internal.common.assertion.AssertParameter$notNull.callStatic(Unknown Source)
+at io.restassured.internal.SpecificationMerger.merge(SpecificationMerger.groovy:92)
+at io.restassured.internal.SpecificationMerger$merge.call(Unknown Source)
+at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:47)
+at io.restassured.internal.SpecificationMerger$merge.call(Unknown Source)
+at io.restassured.internal.RequestSpecificationImpl.spec(RequestSpecificationImpl.groovy:918)
+at utils.RequestBuilder.buildRequest(RequestBuilder.java:221)
+at testEngine.triggerTest.triggerRequest(triggerTest.java:41)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.IllegalArgumentException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- triggerRequest -->
+        <test-method status="PASS" signature="triggerRequest(java.lang.String)[pri:0, instance:testEngine.triggerTest@23faf8f2]" name="triggerRequest" duration-ms="1502" started-at="2020-08-19T11:17:08 IST" data-provider="resourcesData" finished-at="2020-08-19T11:17:09 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[SingleResource]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- triggerRequest -->
+        <test-method status="PASS" signature="triggerRequest(java.lang.String)[pri:0, instance:testEngine.triggerTest@23faf8f2]" name="triggerRequest" duration-ms="3420" started-at="2020-08-19T11:17:09 IST" data-provider="resourcesData" finished-at="2020-08-19T11:17:13 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[CreateUser]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- triggerRequest -->
+      </class> <!-- testEngine.triggerTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

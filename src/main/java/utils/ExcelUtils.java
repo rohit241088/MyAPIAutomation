@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
@@ -67,7 +68,7 @@ sheet=wbook.getSheet(sheetName);
 		Map<String,Integer>headers=new HashMap<>();
 		int i=0;
 		for(int j=0;j<sheet.getRow(i).getLastCellNum();j++) {
-			headers.put(this.returnCellValue(i, j).toString(),sheet.getRow(i).getCell(j).getColumnIndex());
+			headers.put(sheet.getRow(i).getCell(j).getStringCellValue(),sheet.getRow(i).getCell(j).getColumnIndex());
 		}
 		
 		return headers;
@@ -83,8 +84,8 @@ sheet=wbook.getSheet(sheetName);
 		}
 		Map<String,Integer>firstColumnValues=new HashMap<>();
 		int j=0;
-		for(int i=0;i<sheet.getLastRowNum();i++) {
-			firstColumnValues.put(this.returnCellValue(i, j).toString(),sheet.getRow(i).getCell(j).getColumnIndex());
+		for(int i=1;i<=sheet.getLastRowNum();i++) {
+			firstColumnValues.put(this.returnCellValue(i, j).toString(),sheet.getRow(i).getCell(j).getRowIndex());
 
 		}
 		
@@ -97,13 +98,18 @@ sheet=wbook.getSheet(sheetName);
 		if(sheet.getRow(rowNum)==null) {
 			sheet.createRow(rowNum);
 		}
-	if (sheet.getRow(rowNum).getCell(cellNum) == null) {
-		sheet.getRow(rowNum).getCell(cellNum, MissingCellPolicy.CREATE_NULL_AS_BLANK);
-			sheet.getRow(rowNum).getCell(cellNum).setCellValue("");
-			cellValue = sheet.getRow(rowNum).getCell(cellNum).getStringCellValue();
+	if (sheet.getRow(rowNum).getCell(cellNum,MissingCellPolicy.CREATE_NULL_AS_BLANK) == null) {
+		Cell cell=sheet.getRow(rowNum).getCell(cellNum, MissingCellPolicy.CREATE_NULL_AS_BLANK);
+			cell.setCellValue("");
+			cellValue = cell.getStringCellValue();
 			return cellValue;
 
 		}
+	if(sheet.getRow(rowNum).getCell(cellNum).getCellType()==CellType.BLANK) {
+		sheet.getRow(rowNum).getCell(cellNum).setCellValue("");
+		cellValue=String.valueOf(sheet.getRow(rowNum).getCell(cellNum).getStringCellValue());
+		return cellValue;
+	}
 		if (sheet.getRow(rowNum).getCell(cellNum).getCellType() == CellType.BOOLEAN) {
 			cellValue = String.valueOf(sheet.getRow(rowNum).getCell(cellNum).getBooleanCellValue());
 			return cellValue;
